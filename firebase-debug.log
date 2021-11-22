@@ -1,0 +1,82 @@
+[debug] [2021-11-22T09:14:01.306Z] ----------------------------------------------------------------------
+[debug] [2021-11-22T09:14:01.308Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-11-22T09:14:01.308Z] CLI Version:   9.23.0
+[debug] [2021-11-22T09:14:01.308Z] Platform:      win32
+[debug] [2021-11-22T09:14:01.308Z] Node Version:  v14.17.0
+[debug] [2021-11-22T09:14:01.309Z] Time:          Mon Nov 22 2021 12:44:01 GMT+0330 (Iran Standard Time)
+[debug] [2021-11-22T09:14:01.309Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-22T09:14:01.311Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-11-22T09:14:01.333Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-22T09:14:01.333Z] > authorizing via signed-in user (mohammadnv79@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Programming\React-Project\Disney\disney-plus-clone
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2021-11-22T09:14:10.485Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2021-11-22T09:14:11.263Z] Failed to make request: Unexpected token < in JSON at position 0
+[debug] [2021-11-22T09:14:11.905Z] FirebaseError: Failed to make request: Unexpected token < in JSON at position 0
+    at Client.request (C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:109:19)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async getProjectPage (C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:233:17)
+    at async getFirebaseProjectPage (C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:250:23)
+    at async selectProjectInteractively (C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:95:41)
+    at async Object.doSetup [as project] (C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\features\project.js:87:27)
+    at async init (C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\index.js:19:9)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
+[debug] [2021-11-22T09:25:18.200Z] ----------------------------------------------------------------------
+[debug] [2021-11-22T09:25:18.202Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-11-22T09:25:18.202Z] CLI Version:   9.23.0
+[debug] [2021-11-22T09:25:18.203Z] Platform:      win32
+[debug] [2021-11-22T09:25:18.203Z] Node Version:  v14.17.0
+[debug] [2021-11-22T09:25:18.203Z] Time:          Mon Nov 22 2021 12:55:18 GMT+0330 (Iran Standard Time)
+[debug] [2021-11-22T09:25:18.203Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-22T09:25:18.205Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-11-22T09:25:18.226Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-22T09:25:18.226Z] > authorizing via signed-in user (mohammadnv79@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Programming\React-Project\Disney\disney-plus-clone
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2021-11-22T09:25:29.632Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2021-11-22T09:25:30.332Z] Failed to make request: Unexpected token < in JSON at position 0
+[debug] [2021-11-22T09:25:31.129Z] FirebaseError: Failed to make request: Unexpected token < in JSON at position 0
+    at Client.request (C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:109:19)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async getProjectPage (C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:233:17)
+    at async getFirebaseProjectPage (C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:250:23)
+    at async selectProjectInteractively (C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:95:41)
+    at async Object.doSetup [as project] (C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\features\project.js:87:27)
+    at async init (C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\index.js:19:9)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
