@@ -8,41 +8,34 @@ import Originals from "./Originals";
 import Trending from "./Trending";
 import { useDispatch, useSelector } from "react-redux";
 import db from "../firebase";
-import { collection, getDocs } from "firebase/firestore";
-
 import { setMovie } from "../features/movie/movieSlice.js";
 
 const Home = () => {
   const dispatch = useDispatch();
   const userName = useSelector((state) => state.user.name);
-  const movies = useSelector((state) => state.movie.recommends);
-
   let recommends = [];
   let newDisneys = [];
   let originals = [];
   let trending = [];
 
-  const getMovies = async (db) => {
-    const moviescol = collection(db, "movies");
-    const moviesSnapshot = await getDocs(moviescol);
-    const movieList = moviesSnapshot.docs;
-    return movieList;
-  };
-  // console.log(getMovies(db));
 
   useEffect(() => {
-    getMovies(db).then((movies) => {
-      movies.map((doc) => {
+    // console.log("hello");
+    db.collection("movies").onSnapshot((snapshot) => {
+      snapshot.docs.map((doc) => {
         switch (doc.data().type) {
           case "recommend":
             recommends = [...recommends, { id: doc.id, ...doc.data() }];
             break;
+
           case "new":
             newDisneys = [...newDisneys, { id: doc.id, ...doc.data() }];
             break;
+
           case "original":
             originals = [...originals, { id: doc.id, ...doc.data() }];
             break;
+
           case "trending":
             trending = [...trending, { id: doc.id, ...doc.data() }];
             break;
@@ -50,6 +43,7 @@ const Home = () => {
             return null;
         }
       });
+
       dispatch(
         setMovie({
           recommends: recommends,
@@ -59,12 +53,7 @@ const Home = () => {
         })
       );
     });
-
-    console.log(newDisneys);
-    
   }, [userName]);
-
-  console.log(movies);
 
   return (
     <Container>

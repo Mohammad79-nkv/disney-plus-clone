@@ -1,6 +1,10 @@
-import { getAuth, signInWithPopup, onAuthStateChanged } from "firebase/auth";
+import { Fragment, useEffect } from "react";
+import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { auth, provider } from "../firebase";
+
+// import { getAuth, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 import {
   selectUserName,
   selectUserEmail,
@@ -10,28 +14,46 @@ import {
 } from "../features/user/userSlice";
 import {withRouter} from 'react-router-dom'
 
-import styled from "styled-components";
-import { auth, provider } from "../firebase";
-import { Fragment, useEffect } from "react";
+// import { auth, provider } from "../firebase";
 
 const Header = () => {
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.user);
   const userName = useSelector((state) => state.user.name);
   // const userPhoto = useSelector(selectUserPhoto);
 
   useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
+    auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUser(user);
-        history.replace('/home')
+        history.push("/home");
       }
     });
   }, [userName]);
+  const handleAuth = () => {
+    if (!userName) {
+      auth
+        .signInWithPopup(provider)
+        .then((result) => {
+          setUser(result.user);
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    } else if (userName) {
+      auth
+        .signOut()
+        .then(() => {
+          dispatch(setSignOutState());
+          history.push("/");
+        })
+        .catch((err) => alert(err.message));
+    }
+  };
 
   const setUser = (user) => {
-    dispath(
+    dispatch(
       setUserLoginDetails({
         name: user.displayName,
         email: user.email,
@@ -40,24 +62,24 @@ const Header = () => {
     );
   };
 
-  const handleAuth = () => {
-    if(!userName) {
-      signInWithPopup(auth, provider)
-      .then((result) => {
-        setUser(result.user);
-        history.push('/home')
+  // const handleAuth = () => {
+  //   if(!userName) {
+  //     signInWithPopup(auth, provider)
+  //     .then((result) => {
+  //       setUser(result.user);
+  //       history.push('/home')
 
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    }else if(userName){
-      auth.signOut().then(() => {
-        dispath(setSignOutState())
-        history.push('/')
-      }).catch((error) => {alert(error.message)})
-    }
-  };
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  //   }else if(userName){
+  //     auth.signOut().then(() => {
+  //       dispath(setSignOutState())
+  //       history.push('/')
+  //     }).catch((error) => {alert(error.message)})
+  //   }
+  // };
 
   return (
     <Nav>
