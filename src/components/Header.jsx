@@ -217,7 +217,7 @@ const NavMenu = styled.div`
   }
 
   @media (max-width: 767px) {
-    display: block;
+    display: none;
   }
 `;
 const Login = styled.a`
